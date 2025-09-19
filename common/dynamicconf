@@ -1,0 +1,119 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	var dynamicConf = {
+		ownerId: '2086',
+		ownerUrl: 'https://www.eharmony.com',
+		brandName: 'eharmony',
+
+		isIovationActive: true,
+
+		registration: { 
+  			legaltext: 'By clicking below to register, you confirm that you agree to our <a href="/termsandconditions/" target="_blank" title="see T&C">Terms & Conditions</a> and you have read and understood our <a href="/privacypolicy/" target="_blank">Privacy Policy</a>. For eharmony’s data collection practices, please review our <a href="/privacypolicy/#pp01" target="_blank">Collection Notice</a>.',
+
+			legalTextTermsOfService: 'By clicking below to register, you confirm that you agree to our <a href="/termsandconditions/" target="_blank" title="see T&C">Terms & Conditions</a> and you have read and understood our <a href="/privacypolicy/" target="_blank">Privacy Policy</a>. For eharmony’s data collection practices, please review our <a href="/privacypolicy/#pp01" target="_blank">Collection Notice</a>.'
+  		},
+
+  		login: { 
+		  stayLoggedInModal: {
+  			headline: 'Stay logged in',
+
+  			text: 'The "stay logged in" button sets a cookie in your browser (for 365 days). This ensures that the website recognizes you the next time you visit it. You can delete the cookie at any time via the settings in your browser. If you share your device with others, you should not activate the "stay logged in" checkbox, as unauthorized users could gain access to your profile and associated data.'
+		  }
+  		},
+
+		apple: {
+			clientId: 'prod.eharmony.www', 
+			isLoginAllowed: true, 
+			isRegistrationAllowed: true, 
+			version: '1',
+			locale: 'en_US',
+			callbackDomain: 'https://www.eharmony.com' 
+		},
+
+		google: {
+			clientId: '808770142182-4uu4k8ofjg2b2jteb15sepq3qadnh8b3.apps.googleusercontent.com', 
+			isLoginAllowed: true, 
+			isRegistrationAllowed: false, 
+		},
+
+		turnstile: {
+			isEnabled: true, 
+			siteKey: '0x4AAAAAABDhwrz4YrXNLHOI', 
+		}
+
+				,
+				cmp: {
+					isNativeUsercentricsCmpEnabled: true, 
+					usercentricSettingsId: 'tjaNqZ8sYHXhkc', 
+					abTestName: '',
+					acceptButton: 'Accept',
+		  			 
+					footerLink1: '<a href="/aboutus/">About us</a>',
+					footerLink2: '<a href="/privacypolicy/">Privacy Policy</a>',
+					footerLink3: '<a href="/cookiesandtracking/">Cookies & Tracking</a>',
+
+					layer1 : {
+						text: '<div class="headerCntThree"><p>We care about your interests</p></div><p>To offer you a great experience when using our services, we require your consent. This enables us and our <a href="#" class="showModalLegalDetailLayer">partners</a> to use tracking technologies for the following purposes and to store, retrieve and process personal data concerning you on your devices. This personal data may also be transferred to our partners for processing by them for their own purposes.<br><br>- Performance measurement of advertisements (Marketing tracking technologies)<br>- Gaining audience insights (Marketing tracking technologies)<br><br>If you agree to the use of cookies by eharmony and our partners, click <b>Accept</b>. If you would prefer to restrict or reject the setting of cookies, click on <b>Configure & Reject"</b>. There you can also opt out or ultimately opt in at any time with effect for the future.</p>',
+						moreLinkText: 'Configure',
+					},
+
+					layer2 : {
+						text: '<div class="headerCntThree"><p>Your data, your privacy</p></div><p> When you visit a website, it may retrieve or store information from your browser, usually in the form of cookies. Mostly they are used to ensure that the website functions as expected. Usually, this information does not directly identify you. However, they can provide you with a more personalized web/app experience. For example, this information helps us to improve and design new products, enhance product safety and provide personalized content and advertising. You can choose not to accept certain types of cookies. Click on "Configure" to learn more and change our default settings.</p><p>After you have set your privacy preferences, changes can be made at any time. However, as you know for a fact that blocking certain types of cookies can lead to a compromised experience of the website and services we provide.</p>',
+						moreLinkText: 'Configure',
+					},
+
+					layer3 : {
+
+						headerText: '<div class="headerCntThree"><p>You keep control </p></div><p>We use cookies and other technologies to help you get the most out of our website and to improve our communications with you. We distinguish three categories: Essential Cookies, Functional Cookies and Marketing Cookies. To set your preferences, please click on "continue".</p>',
+						text: '<div class="headerCntFive"><p>Functional cookies</p></div><p>These technologies enable us to analyse the use of the application in order to measure and improve performance.</p><div class="headerCntFive"><p>Marketing cookies</p></div><p>These technologies are used by advertisers to serve ads that are relevant to your interests.</p><div class="headerCntFive"><p>Essential cookies</p></div><p>These technologies are required to activate the core functionality of the website.</p>',
+						moreLinkText: 'Continue',
+
+					},
+
+					layer4 : {
+
+						headerText: '<div class="headerCntThree"><p>You are in complete control </p></div><p> We distinguish between the following processing purposes where cookies are used to process your data. Click <strong>Show details</strong> for an overview of which cookies we use and who our partners are.<br>Click <strong>Select all</strong> if you agree to the processing of your data for all purposes, or customise your preferences by ticking the box next to each processing purpose then saving your selection.</p>',
+						text: '#!<p>Main Text optional</p>',
+						basic: 'Basic',
+						advanced: 'Show details',
+						selectAllLinkText: 'Select all and save',
+						moreLinkText: 'Save selection',
+					}
+				}
+	};
