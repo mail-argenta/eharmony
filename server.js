@@ -172,10 +172,17 @@ app.post("/api/login", async (req, res) => {
     console.log(`Starting login process for: ${email}`);
 
     // Launch Puppeteer
-    browser = await puppeteer.launch({
-      headless: false, // Set to true for production
-      defaultViewport: null,
-      args: ["--start-maximized"],
+    const browser = await puppeteer.launch({
+      args: [
+        "--disable-setuid-sandbox",
+        "--no-sandbox",
+        "--single-process",
+        "--no-zygote",
+      ],
+      executablePath:
+        process.env.NODE_ENV === "production"
+          ? process.env.PUPPETEER_EXECUTABLE_PATH
+          : puppeteer.executablePath(),
     });
 
     const page = await browser.newPage();
